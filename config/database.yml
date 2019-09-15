@@ -2,14 +2,14 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: db
-  username: cookbook
+  username: postgres 
   password: Buzzing3Fridge
   pool: 5
 
 development:
   <<: *default
   database: cookbook_development
-  host: localhost
+  host: db
 
 
 test:
