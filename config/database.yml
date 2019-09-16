@@ -9,8 +9,11 @@ default: &default
 development:
   <<: *default
   database: cookbook_development
-  host: db
+  host: localhost
 
+production:
+  <<: *default
+  host: db
 
 test:
   <<: *default
