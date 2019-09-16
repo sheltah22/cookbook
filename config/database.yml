@@ -11,10 +11,6 @@ development:
   database: cookbook_development
   host: db
 
-docker:
-  <<: *default
-  host: db
-
 test:
   <<: *default
   database: cookbook_test

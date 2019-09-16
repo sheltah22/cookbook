@@ -1,24 +1,12 @@
-# README
+# Cookbook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+A website containing a database of recipes indexed by ingredient and quantity of ingredient. 
 
-Things you may want to cover:
+## Building Instructions
+1) `docker-compose build`
+2) `docker-compose up`
+3) `docker-compose run web rake db:create`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Testing Instructions
+Run `docker-compose run -e "RAILS_ENV = test" web rake test`
