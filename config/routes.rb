@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'cookbook/add_recipe'
   get 'cookbook/advanced_search'
   get 'cookbook/saved_recipes'
-  root 'application#hello'
+  root 'cookbook#home'
 end

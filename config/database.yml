@@ -9,7 +9,7 @@ default: &default
 development:
   <<: *default
   database: cookbook_development
-  host: localhost
+  host: db
 
 docker:
   <<: *default
@@ -18,5 +18,5 @@ docker:
 test:
   <<: *default
   database: cookbook_test
-  host: localhost
+  host: db 
 
