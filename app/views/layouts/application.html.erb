@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= yield(:title) %> | Cookbook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,19 +18,22 @@
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "Cookbook", '#', id: "title-logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",           '#' %></li>
-            <li><%= link_to "Advanced Search", '#' %></li>
-            <li><%= link_to "Add Recipes",    '#' %></li>
-            <li><%= link_to "Saved Recipes",  '#' %></li>
-          </ul>
-        </nav>
+    <nav class="navbar is-fixed-top is-link" role="navigation" aria-label="main">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#" style="font-size:x-large; font-weight:bold;">
+          Cookbook
+        </a>
       </div>
-    </header>
+
+      <div id="menu" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="#" class="navbar-item">Home</a>
+          <a href="#" class="navbar-item">Advanced Search</a>
+          <a href="#" class="navbar-item">Add Recipe</a>
+          <a href="#" class="navbar-item">Saved Recipes</a>
+        </div>
+      </div>
+    </nav>
     <div class="container">
       <%= yield %>
     </div>
