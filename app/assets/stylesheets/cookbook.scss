@@ -1,4 +1,17 @@
 // Place all the styles related to the Cookbook controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$navbar-background-color: hsl(7, 100%, 45%);
+$navbar-item-hover-background-color: hsl(7, 100%, 37%);
+$navbar-item-color: hsl(0, 100%, 100%);
+$navbar-item-hover-color: hsl(0, 100%, 100%);
 @import "bulma";
+
+.navbar-item {
+    font-weight: bold;
+}
+
+body {
+    padding-top: 10px;
+}
+
