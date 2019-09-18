@@ -18,24 +18,24 @@
   </head>
 
   <body>
-    <nav class="navbar is-fixed-top is-link" role="navigation" aria-label="main">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#" style="font-size:x-large; font-weight:bold;">
+        <a class="navbar-item" href=root_path style="font-size:x-large; font-weight:bold;">
           Cookbook
         </a>
       </div>
 
       <div id="menu" class="navbar-menu">
         <div class="navbar-start">
-          <a href="#" class="navbar-item">Home</a>
-          <a href="#" class="navbar-item">Advanced Search</a>
-          <a href="#" class="navbar-item">Add Recipe</a>
-          <a href="#" class="navbar-item">Saved Recipes</a>
+          <a href="<%= cookbook_home_path %>" class="navbar-item">Home</a>
+          <a href="<%= cookbook_advanced_search_path %>" class="navbar-item">Advanced Search</a>
+          <a href="<%= cookbook_add_recipe_path %>" class="navbar-item">Add Recipe</a>
+          <a href="<%= cookbook_saved_recipes_path %>" class="navbar-item">Saved Recipes</a>
         </div>
       </div>
     </nav>
-    <div class="container">
+    <section class="section">
       <%= yield %>
-    </div>
+    </section>
   </body>
 </html>
