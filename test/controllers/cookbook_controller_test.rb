@@ -13,25 +13,25 @@ class CookbookControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get home" do
-    get cookbook_home_url
+    get home_url
     assert_response :success
     assert_select "title", "Home | #{@base_title}"
   end
 
   test "should get add_recipe" do
-    get cookbook_add_recipe_url
+    get add_recipe_url
     assert_response :success
     assert_select "title", "Add Recipe | #{@base_title}"
   end
 
   test "should get advanced_search" do
-    get cookbook_advanced_search_url
+    get advanced_search_url
     assert_response :success
     assert_select "title", "Advanced Search | #{@base_title}"
   end
 
   test "should get saved_recipes" do
-    get cookbook_saved_recipes_url
+    get saved_recipes_url
     assert_response :success
     assert_select "title", "Saved Recipes | #{@base_title}"
   end
