@@ -2,6 +2,7 @@
 <h1 class="title is-1">Cookbook</h1>
 
 <h2 class="title is-3">Random Recipe of the Day</h2>
+<%  provide(:keywords, random_keywords) %>
 <div class="card">
   <div class="card-content">
     <div class="media">
@@ -11,8 +12,8 @@
         </figure>
       </div>
       <div class="media-content">
-        <p class="title is-4">Recipe Title</p>
-        <p class="subtitle is-6">Recipe Category</p>
+        <p class="title is-4"><%=@title%></p>
+        <p class="subtitle is-6"><%=@category%></p>
       </div>
     </div>
 
@@ -21,16 +22,12 @@
         <div class="column is-narrow">
           <strong>Ingredients:</strong>
         </div>
-        <div class="column is-narrow">
-          Ingredient 1
-        </div>
-        <div class="column is-narrow">
-          Ingredient 2
-        </div>
-        <div class="column is-narrow">
-          Ingredient 3
-        </div>
-      </div>
+        <% @ingredients.each do |ingredient| %>
+          <div class="column is-narrow">
+            <%= ingredient %>
+          </div>
+        <% end %>
+     </div>
       <p>Mix it all up and see what happens.</p>
     </div>
   </div>
