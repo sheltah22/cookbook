@@ -9,4 +9,4 @@ A website containing a database of recipes indexed by ingredient and quantity of
 3) `docker-compose run web rake db:create`
 
 ## Testing Instructions
-Run `docker-compose run -e "RAILS_ENV = test" web rake test`
+Run `docker-compose run -e "RAILS_ENV = test" web spring rspec`
