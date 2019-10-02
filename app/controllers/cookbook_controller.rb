@@ -30,7 +30,6 @@ module CookbookHelper
     FOODS.sample(rand(1..5)) + seasoning.sample(rand(1..3)) +
       other.sample(rand(1..2))
   end
-
 end
 
 class CookbookController < ApplicationController
