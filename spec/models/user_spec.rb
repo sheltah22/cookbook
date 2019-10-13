@@ -70,4 +70,10 @@ describe User do
     @user.password = @user.password_confirmation = "a" * 7
     expect(@user).to_not be_valid
   end
+
+  it "dependent recipes should be destroyed" do
+    @user.save
+    @user.recipes.create!(title: "Recipe", content: "Lorem ipsum")
+    expect { @user.destroy }.to change(Recipe, :count).by(-1)
+  end
 end
