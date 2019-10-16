@@ -2,14 +2,12 @@
 
 <h1 class="title is-3">Browse All Recipes</h1>
 
-<%= will_paginate @recipes %>
+<%= will_paginate @recipes, renderer: BulmaPagination::Rails, class: 'is-centered' %>
 <section class="section">
-  <div class="container">
-    <div class="column is-full">
-      <ul class="recipes">
-        <%= render @recipes %>
-      </ul>
-    </div>
+  <div class="column is-full">
+    <ul class="recipes">
+      <%= render @recipes %>
+    </ul>
   </div>
 </section>
-<%= will_paginate @recipes %>
+<%= will_paginate @recipes, renderer: BulmaPagination::Rails, class: 'is-centered' %>

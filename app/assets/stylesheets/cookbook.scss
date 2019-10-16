@@ -6,6 +6,11 @@ $navbar-item-hover-background-color: hsl(7, 100%, 37%);
 $navbar-item-color: hsl(0, 100%, 100%);
 $navbar-item-hover-color: hsl(0, 100%, 100%);
 
+$pagination-current-background-color: hsl(7, 100%, 45%);
+$pagination-current-border-color: hsl(7, 100%, 45%);
+$pagination-focus-border-color: hsl(7, 100%, 45%);
+$link: hsl(0, 0%, 21%);
+
 @import "bulma";
 
 .navbar-item {

@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bulma-rails', '~> 0.7.5'
 gem 'will_paginate'
+gem 'will_paginate-bulma'
 gem 'faker', '~> 1.7'
 
 group :development, :test do
