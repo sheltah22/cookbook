@@ -37,4 +37,11 @@ describe "Cookbook" do
     expect(response).to render_template(:saved_recipes)
     assert_select "title", "Saved Recipes | #{base_title}"
   end
+
+  it "loads browse and renders view with correct title" do
+    get browse_url
+    expect(response).to have_http_status(:ok)
+    expect(response).to render_template(:browse)
+    assert_select "title", "Browse | #{base_title}"
+  end
 end

@@ -1,0 +1,15 @@
+<% provide(:title, "Browse") %>
+
+<h1 class="title is-3">Browse All Recipes</h1>
+
+<%= will_paginate @recipes %>
+<section class="section">
+  <div class="container">
+    <div class="column is-full">
+      <ul class="recipes">
+        <%= render @recipes %>
+      </ul>
+    </div>
+  </div>
+</section>
+<%= will_paginate @recipes %>
