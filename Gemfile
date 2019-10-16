@@ -38,6 +38,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bulma-rails', '~> 0.7.5'
+gem 'will_paginate'
+gem 'faker', '~> 1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
