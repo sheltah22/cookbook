@@ -1,0 +1,29 @@
+<li id="recipe-<%= recipe.id %>">
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image-is-48x48">
+            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4"><%=recipe.title%></p>
+          <p class="subtitle is-6"><%="Default dish_type"%></p> <!-- TODO: sub with actual type -->
+        </div>
+      </div>
+
+      <div class="content">
+        <p><%= recipe.content %></p>
+      </div>
+
+      <footer class="card-footer">
+        <p class="card-footer-item">
+          <span>
+            Posted <%= time_ago_in_words(recipe.created_at) %> ago.
+          </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</li>
