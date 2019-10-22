@@ -19,9 +19,9 @@ describe DishType do
     expect(@new_type).to_not be_valid
   end
 
-  it "saves name as lowercase" do
+  it "saves name as captialized" do
     @dish_type.name = "ENTrEe"
     @dish_type.save
-    expect(@dish_type.name).to eq("entree")
+    expect(@dish_type.name).to eq("Entree")
   end
 end
