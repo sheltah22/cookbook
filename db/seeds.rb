@@ -8,6 +8,11 @@ DishType.create!(name: "entree")
 DishType.create!(name: "side")
 DishType.create!(name: "dessert")
 
+10.times do
+  name = Faker::Food.unique.ingredient
+  Food.create!(name: name)
+end
+
 20.times do |n|
   name = Faker::Name.name
   email = "example#{n+1}@cookbook.com"
@@ -25,3 +30,4 @@ end
   User.find_by(id: (n % 20) + 2).recipes.create(title: title, content: content,
                                                 created_at: created_at, dish_type: DishType.find((n % 4) + 1))
 end
+
