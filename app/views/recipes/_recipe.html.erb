@@ -15,6 +15,14 @@
 
       <div class="content">
         <p>By <%= recipe.user.name %></p>
+        <div class="column is-narrow">
+          <strong>Ingredients:</strong>
+          <% recipe.ingredients.each do |ingredient| %>
+            <div class="column is-narrow">
+              <%= "#{ingredient.amount.truncate(2)} units #{ingredient.food.name}" %>
+            </div>
+          <% end %>
+        </div>
         <p><%= recipe.content %></p>
       </div>
 

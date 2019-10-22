@@ -8,7 +8,7 @@ DishType.create!(name: "entree")
 DishType.create!(name: "side")
 DishType.create!(name: "dessert")
 
-10.times do
+20.times do
   name = Faker::Food.unique.ingredient
   Food.create!(name: name)
 end
@@ -27,7 +27,11 @@ end
   title = Faker::Food.dish
   content = Faker::Food.description
   created_at = Faker::Time.between(20.days.ago, 5.minutes.ago)
-  User.find_by(id: (n % 20) + 2).recipes.create(title: title, content: content,
-                                                created_at: created_at, dish_type: DishType.find((n % 4) + 1))
+  @recipe = User.find((n % 20) + 2).recipes.create!(title: title, content: content,
+                                                    dish_type: DishType.find((n % 4) + 1),
+                                                    created_at: created_at)
+  (rand(5) + 1).times do |n|
+    @recipe.ingredients.create(food: Food.find(rand(20) + 1), amount: rand(6) + rand())
+  end
 end
 

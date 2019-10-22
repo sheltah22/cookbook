@@ -73,7 +73,9 @@ describe User do
 
   it "dependent recipes should be destroyed" do
     @user.save
-    @user.recipes.create!(title: "Recipe", content: "Lorem ipsum")
+    @dish_type = DishType.create(name: "Entree")
+    @user.recipes.create(title: "Recipe", content: "Lorem ipsum",
+                          dish_type: @dish_type)
     expect { @user.destroy }.to change(Recipe, :count).by(-1)
   end
 end

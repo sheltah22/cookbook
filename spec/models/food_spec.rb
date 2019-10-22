@@ -19,9 +19,9 @@ describe Food do
     expect(@new_food).to_not be_valid
   end
 
-  it "saves name as captialized" do
+  it "saves name as lowercase" do
     @food.name = "flOuR"
     @food.save
-    expect(@food.name).to eq("Flour")
+    expect(@food.name).to eq("flour")
   end
 end
