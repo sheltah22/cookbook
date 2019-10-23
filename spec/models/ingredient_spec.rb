@@ -6,9 +6,10 @@ describe Ingredient do
                         password: "foobarbar", password_confirmation: "foobarbar")
     @dish_type = DishType.create(name: "Entree")
     @recipe = @user.recipes.create(title: "Recipe 1", content: "This is a recipe.",
-                                    dish_type: @dish_type)
-    @food = Food.create(name: "Flour")
-    @measurement = Measurement.create(name: "cup")
+                                   dish_type: @dish_type)
+    @variety = Variety.create(name: "Volume")
+    @food = @variety.foods.create(name: "Flour")
+    @measurement = @variety.measurements.create(name: "cup")
     @ingredient = @recipe.ingredients.build(food: @food, amount: 1.5,
                                             measurement: @measurement)
   end
@@ -34,6 +35,13 @@ describe Ingredient do
 
   it "measurement should be present" do
     @ingredient.measurement = nil
+    expect(@ingredient).to_not be_valid
+  end
+
+  it "measurement should match with food" do
+    new_variety = Variety.create(name: "unit")
+    new_measurement = new_variety.measurements.create(name: "unit")
+    @ingredient.measurement = new_measurement
     expect(@ingredient).to_not be_valid
   end
 end
