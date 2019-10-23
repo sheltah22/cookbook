@@ -8,6 +8,10 @@ DishType.create!(name: "entree")
 DishType.create!(name: "side")
 DishType.create!(name: "dessert")
 
+Measurement.create!(name: "cup")
+Measurement.create!(name: "tablespoon")
+Measurement.create!(name: "teaspoon")
+
 20.times do
   name = Faker::Food.unique.ingredient
   Food.create!(name: name)
@@ -31,7 +35,9 @@ end
                                                     dish_type: DishType.find((n % 4) + 1),
                                                     created_at: created_at)
   (rand(5) + 1).times do |n|
-    @recipe.ingredients.create(food: Food.find(rand(20) + 1), amount: rand(6) + rand())
+    @recipe.ingredients.create!(food: Food.find(rand(20) + 1),
+                                amount: rand(6) + rand(),
+                                measurement: Measurement.find(rand(2) + 1))
   end
 end
 

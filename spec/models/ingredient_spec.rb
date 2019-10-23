@@ -8,7 +8,9 @@ describe Ingredient do
     @recipe = @user.recipes.create(title: "Recipe 1", content: "This is a recipe.",
                                     dish_type: @dish_type)
     @food = Food.create(name: "Flour")
-    @ingredient = @recipe.ingredients.build(food: @food, amount: 1.5)
+    @measurement = Measurement.create(name: "cup")
+    @ingredient = @recipe.ingredients.build(food: @food, amount: 1.5,
+                                            measurement: @measurement)
   end
 
   it "should be valid" do
@@ -16,17 +18,22 @@ describe Ingredient do
   end
 
   it "recipe should be present" do
-    @ingredient.recipe_id = nil
+    @ingredient.recipe = nil
     expect(@ingredient).to_not be_valid
   end
 
   it "food should be present" do
-    @ingredient.food_id = nil
+    @ingredient.food = nil
     expect(@ingredient).to_not be_valid
   end
 
   it "amount should be present" do
     @ingredient.amount = nil
+    expect(@ingredient).to_not be_valid
+  end
+
+  it "measurement should be present" do
+    @ingredient.measurement = nil
     expect(@ingredient).to_not be_valid
   end
 end
