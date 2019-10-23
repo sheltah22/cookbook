@@ -18,7 +18,7 @@ DishType.create!(name: "dessert")
 @volume.measurements.create!(name: "teaspoon")
 @weight.measurements.create!(name: "pound")
 @mass.measurements.create!(name: "gram")
-@unit.measurements.create!(name: "")
+@unit.measurements.create!(name: "unit")
 
 20.times do
   name = Faker::Food.unique.ingredient

@@ -13,8 +13,8 @@ describe Recipe do
     expect(@recipe).to be_valid
   end
 
-  it "user id should be present" do
-    @recipe.user_id = nil
+  it "user should be present" do
+    @recipe.user = nil
     expect(@recipe).to_not be_valid
   end
 
@@ -25,6 +25,11 @@ describe Recipe do
 
   it "content should be present" do
     @recipe.content = "  "
+    expect(@recipe).to_not be_valid
+  end
+
+  it "dish_type should be present" do
+    @recipe.dish_type = nil
     expect(@recipe).to_not be_valid
   end
 

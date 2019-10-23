@@ -1,6 +1,6 @@
 class Food < ApplicationRecord
   belongs_to :variety
-  has_many :ingredients
+  has_many :ingredients, dependent: :destroy
 
   before_save { self.name = name.downcase }
 
