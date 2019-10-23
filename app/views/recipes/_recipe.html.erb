@@ -19,7 +19,7 @@
           <strong>Ingredients:</strong>
           <% recipe.ingredients.each do |ingredient| %>
             <div class="column is-narrow">
-              <%= "#{ingredient.amount.truncate(2)} #{ingredient.measurement.name} #{ingredient.food.name}" %>
+              <%= ingredient.as_string %>
             </div>
           <% end %>
         </div>
