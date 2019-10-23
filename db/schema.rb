@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_013924) do
+ActiveRecord::Schema.define(version: 2019_10_23_021901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_10_23_013924) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "variety_id"
+    t.index ["variety_id"], name: "index_foods_on_variety_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -43,6 +45,8 @@ ActiveRecord::Schema.define(version: 2019_10_23_013924) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "variety_id"
+    t.index ["variety_id"], name: "index_measurements_on_variety_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -66,9 +70,17 @@ ActiveRecord::Schema.define(version: 2019_10_23_013924) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "varieties", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "foods", "varieties"
   add_foreign_key "ingredients", "foods"
   add_foreign_key "ingredients", "measurements"
   add_foreign_key "ingredients", "recipes"
+  add_foreign_key "measurements", "varieties"
   add_foreign_key "recipes", "dish_types"
   add_foreign_key "recipes", "users"
 end

@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Measurement do
   before(:each) do
-    @measurement = Measurement.create(name: "cup")
+    @variety = Variety.create(name: "Volume")
+    @measurement = @variety.measurements.create(name: "cup")
   end
 
   it "should be valid" do
@@ -15,8 +16,13 @@ describe Measurement do
   end
 
   it "name should be unique" do
-    @new_measurement = Measurement.new(name: "cup")
+    @new_measurement = @variety.measurements.build(name: "cup")
     expect(@new_measurement).to_not be_valid
+  end
+
+  it "variety should be present" do
+    @measurement.variety = nil
+    expect(@measurement).to_not be_valid
   end
 
   it "saves name as lowercase" do

@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Food do
   before(:each) do
-    @food = Food.create(name: "Flour")
+    @variety = Variety.create(name: "Weight")
+    @food = @variety.foods.create(name: "flour")
   end
 
   it "should be valid" do
@@ -15,8 +16,13 @@ describe Food do
   end
 
   it "name should be unique" do
-    @new_food = Food.new(name: "Flour")
+    @new_food = @variety.foods.build(name: "flour")
     expect(@new_food).to_not be_valid
+  end
+
+  it "variety should be present" do
+    @food.variety = nil
+    expect(@food).to_not be_valid
   end
 
   it "saves name as lowercase" do
