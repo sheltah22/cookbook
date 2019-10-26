@@ -42,9 +42,12 @@ describe Recipe do
 
   it "dependent ingredients should be destroyed" do
     @recipe.save
-    @food = Food.create(name: "flour")
-    @measurement = Measurement.create(name: "cup")
-    @recipe.ingredients.create(food: @food, amount: 1.33, measurement: @measurement)
+    variety = Variety.create(name: "volume")
+    food = Food.new(name: "flour")
+    food.varieties << variety
+    food.save
+    measurement = variety.measurements.create(name: "cup")
+    @recipe.ingredients.create(food: food, amount: 1.33, measurement: measurement)
     expect { @recipe.destroy }.to change(Ingredient, :count).by(-1)
   end
 end

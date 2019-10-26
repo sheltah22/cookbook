@@ -8,8 +8,11 @@ class Ingredient < ApplicationRecord
 
   def validate_food_and_measurement_variety_must_match
     unless food.nil? || measurement.nil?
-      if food.variety != measurement.variety
-        errors.add(:measurement, " must be appropriate for food")
+      variety = measurement.variety
+      food.varieties.all
+      unless food.varieties.exists?(variety.id)
+        errors.add(:measurement, "must be appropriate for food, m.variety=#{variety.name},"\
+                                 "f.vs=#{food.varieties.all.to_a.map { |e| e.to_s }}")
       end
     end
   end

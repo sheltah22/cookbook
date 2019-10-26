@@ -32,7 +32,9 @@ describe Measurement do
   end
 
   it "ingredients are destroyed with measurement" do
-    @food = @variety.foods.create(name: "flour")
+    @food = Food.new(name: "flour")
+    @food.varieties << @variety
+    @food.save
     @user = User.create(name: "Example User", email: "user@example.com",
                         password: "foobarbar", password_confirmation: "foobarbar")
     @dish_type = DishType.create(name: "Entree")

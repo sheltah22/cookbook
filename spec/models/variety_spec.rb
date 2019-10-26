@@ -26,12 +26,14 @@ describe Variety do
   end
 
   it "measurements are destroyed with variety" do
-    @measurement = @variety.measurements.create(name: "cups")
+    measurement = @variety.measurements.create(name: "cups")
     expect { @variety.destroy }.to change(Measurement, :count).by(-1)
   end
 
-  it "foods are destroyed with food" do
-    @food = @variety.foods.create(name: "flour")
+  it "foods are destroyed with variety" do
+    food = Food.new(name: "flour")
+    food.varieties << @variety
+    food.save
     expect { @variety.destroy }.to change(Food, :count).by(-1)
   end
 end

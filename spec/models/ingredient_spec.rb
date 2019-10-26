@@ -8,7 +8,9 @@ describe Ingredient do
     @recipe = @user.recipes.create(title: "Recipe 1", content: "This is a recipe.",
                                    dish_type: @dish_type)
     @variety = Variety.create(name: "Volume")
-    @food = @variety.foods.create(name: "Flour")
+    @food = Food.new(name: "Flour")
+    @food.varieties << @variety
+    @food.save
     @measurement = @variety.measurements.create(name: "cup")
     @ingredient = @recipe.ingredients.build(food: @food, amount: 1.5,
                                             measurement: @measurement)
