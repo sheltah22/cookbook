@@ -18,6 +18,7 @@
   </head>
 
   <body>
+    <div class="section">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main">
       <div class="navbar-brand">
         <a class="navbar-item" href=<%= root_path%> style="font-size:x-large; font-weight:bold;">
@@ -33,10 +34,17 @@
           <a href=<%= add_recipe_path %> class="navbar-item">Add Recipe</a>
           <a href=<%= saved_recipes_path %> class="navbar-item">Saved Recipes</a>
         </div>
+        <div class="navbar-end">
+          <a href=<%= signup_path %> class="navbar-item">Sign Up</a>
+        </div>
       </div>
     </nav>
-    <section class="section">
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="notification is-info<%= message_type %>"><%= message %></div>
+      <% end %>
       <%= yield %>
-    </section>
+    </div>
+    </div>
   </body>
 </html>
