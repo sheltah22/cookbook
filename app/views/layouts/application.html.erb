@@ -31,17 +31,25 @@
           <a href=<%= root_path %> class="navbar-item">Home</a>
           <a href=<%= browse_path %> class="navbar-item">Browse</a>
           <a href=<%= advanced_search_path %> class="navbar-item">Advanced Search</a>
-          <a href=<%= add_recipe_path %> class="navbar-item">Add Recipe</a>
-          <a href=<%= saved_recipes_path %> class="navbar-item">Saved Recipes</a>
+          <% if logged_in? %>
+            <a href=<%= add_recipe_path %> class="navbar-item">Add Recipe</a>
+            <a href=<%= saved_recipes_path %> class="navbar-item">Saved Recipes</a>
+          <% end %>
         </div>
         <div class="navbar-end">
-          <a href=<%= signup_path %> class="navbar-item">Sign Up</a>
+          <% if logged_in? %>
+            <a href=<%= user_path(current_user) %> class="navbar-item">Profile</a>
+            <a href=<%= logout_path %> class="navbar-item">Log Out</a>
+          <% else %>
+            <a href=<%= login_path %> class="navbar-item">Log In</a>
+            <a href=<%= signup_path %> class="navbar-item">Sign Up</a>
+          <% end %>
         </div>
       </div>
     </nav>
     <div class="container">
       <% flash.each do |message_type, message| %>
-        <div class="notification is-info<%= message_type %>"><%= message %></div>
+        <div class="notification is-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
     </div>
