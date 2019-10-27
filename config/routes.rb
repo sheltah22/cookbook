@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/advanced_search', to: 'cookbook#advanced_search'
   get '/saved_recipes', to: 'cookbook#saved_recipes'
 
-
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
   root 'cookbook#home'
 
   resources :users
