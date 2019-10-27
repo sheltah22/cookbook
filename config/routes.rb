@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'cookbook#home'
   get '/home', to: 'cookbook#home'
   get '/browse', to: 'cookbook#browse'
   get '/add_recipe', to: 'cookbook#add_recipe'
@@ -7,7 +8,9 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
-  root 'cookbook#home'
-
   resources :users
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 end
