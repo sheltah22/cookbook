@@ -12,9 +12,6 @@ class CookbookController < ApplicationController
     @page = params[:page]
   end
 
-  def add_recipe
-  end
-
   def advanced_search
   end
 
