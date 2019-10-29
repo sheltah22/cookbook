@@ -1,0 +1,46 @@
+<%= form_for(@recipe, url: add_recipe_path) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.label :title, class: "label" %>
+    <div class="control">
+      <%= f.text_field :title, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :dish_type, class: "label" %>
+    <div class="control">
+      <div class="select">
+        <%= f.collection_select :dish_type_id, DishType.all, :id, :name %>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'add_ingredient', f: f %>
+
+  <div id="additional-ingredient-container"></div>
+
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <button class="button">
+          <%= link_to "Add ingredient", add_ingredient_form_path,
+              {remote: true, method: "get", id: "add_ingredient_btn"}  %>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, class: "label" %>
+    <div class="control">
+      <%= f.text_area :content, class: "input", rows: "50" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.submit "Save", class: "button is-blue" %>
+    </div>
+  </div>
+<% end %>

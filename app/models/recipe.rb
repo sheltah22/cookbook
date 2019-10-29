@@ -8,4 +8,6 @@ class Recipe < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true
   validates :content, presence: true
+
+  accepts_nested_attributes_for :ingredients, allow_destroy: true
 end

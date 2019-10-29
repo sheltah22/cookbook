@@ -34,6 +34,9 @@
             Posted <%= time_ago_in_words(recipe.created_at) %> ago.
           </span>
         </p>
+        <p class="card-footer-item">
+          <%= link_to "Edit", edit_recipe_path(recipe) %>
+        </p>
       </footer>
     </div>
   </div>

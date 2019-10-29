@@ -2,36 +2,6 @@
 
 <section class="section">
   <h1 class="title">Add Recipe</h1>
-  <%= form_for(@recipe, url: add_recipe_path) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <div class="field">
-      <%= f.label :title, class: "label" %>
-      <div class="control">
-        <%= f.text_field :title, class: "input" %>
-      </div>
-    </div>
-
-    <div class="field">
-      <%= f.label :dish_type, class: "label" %>
-      <div class="control">
-        <div class="select">
-          <%= f.collection_select :dish_type_id, DishType.all, :id, :name %>
-        </div>
-      </div>
-    </div>
-
-    <div class="field">
-      <%= f.label :content, class: "label" %>
-      <div class="control">
-        <%= f.text_area :content, class: "input", rows: "50" %>
-      </div>
-    </div>
-
-    <div class="field">
-      <div class="control">
-        <%= f.submit "Save", class: "button is-blue" %>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'recipe_form' %>
 </section>
 
