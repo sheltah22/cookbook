@@ -15,17 +15,15 @@
       </div>
     </div>
   </div>
-
-  <%= render 'add_ingredient', f: f %>
-
-  <div id="additional-ingredient-container"></div>
+  <div class="fieldset-container">
+    <%= render 'add_ingredient', f: f %>
+  </div>
 
   <div class="level">
     <div class="level-left">
       <div class="level-item">
-        <button class="button">
-          <%= link_to "Add ingredient", add_ingredient_form_path,
-              {remote: true, method: "get", id: "add_ingredient_btn"}  %>
+        <button class="button" type="button">
+          <%= link_to_add_ingredient "Add ingredient", f, :ingredients %>
         </button>
       </div>
     </div>
