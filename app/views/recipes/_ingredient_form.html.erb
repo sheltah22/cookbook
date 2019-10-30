@@ -1,40 +1,42 @@
-<fieldset>
-  <div class="level">
-    <div class="level-left">
-      <div class="level-item">
-        <div class="field">
-          <div class="control">
-            <%= f.number_field :amount, step: :any, class: "input" %>
+<li class="ingredient">
+  <fieldset>
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <%= f.number_field :amount, step: :any, class: "input" %>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="level-item">
-        <div class="field">
-          <div class="control">
-            <%= f.collection_select :measurement_id, Measurement.all, :id, :name %>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <%= f.collection_select :measurement_id, Measurement.all, :id, :name %>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="level-item">
-        <div class="field">
-          <div class="control">
-            <%= f.collection_select :food_id, Food.all, :id, :name %>
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <%= f.collection_select :food_id, Food.all, :id, :name %>
+            </div>
           </div>
         </div>
-      </div>
 
-      <%= f.hidden_field :_destroy %>
-      <div class="level-item">
-        <div class="field">
-          <div class="control">
-            <button class="button" type="button">
-              <%= link_to "Remove", '#', class: "remove_ingredient" %>
-            </button>
+
+        <div class="level-item">
+          <div class="field">
+            <div class="control">
+              <button class="button" type="button">
+                <%= f.remove_nested_fields_link 'Remove' %>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</fieldset>
+  </fieldset>
+</li>

@@ -41,6 +41,7 @@ gem 'bulma-rails', '~> 0.7.5'
 gem 'will_paginate'
 gem 'will_paginate-bulma'
 gem 'faker', '~> 1.7'
+gem 'nested_form_fields'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

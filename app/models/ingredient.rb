@@ -11,8 +11,8 @@ class Ingredient < ApplicationRecord
       variety = measurement.variety
       food.varieties.all
       unless food.varieties.exists?(variety.id)
-        errors.add(:measurement, "must be appropriate for food, m.variety=#{variety.name},"\
-                                 "f.vs=#{food.varieties.all.to_a.map { |e| e.to_s }}")
+        errors.add(:measurement, "must be appropriate for food, measurement is #{variety.name.downcase}, "\
+                                 "food is measured in #{food.varieties.all.to_a.map { |e| e.name.downcase }}")
       end
     end
   end

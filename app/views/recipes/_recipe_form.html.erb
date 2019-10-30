@@ -16,19 +16,17 @@
     </div>
   </div>
 
-  <%= f.fields_for :ingredients do |ff| %>
+  <%= f.nested_fields_for :ingredients do |ff| %>
     <%= render 'ingredient_form', f: ff %>
   <% end %>
 
-  <div class="level">
-    <div class="level-left">
-      <div class="level-item">
-        <button class="button" type="button">
-          <%= link_to_add_ingredient "Add ingredient", f, :ingredients %>
-        </button>
-      </div>
-    </div>
-  </div>
+
+  <%= f.add_nested_fields_link :ingredients do %>
+    <button class="button ingredient_button" type="button">
+      Add Ingredient
+    </button>
+  <% end %>
+
 
   <div class="field">
     <%= f.label :content, class: "label" %>

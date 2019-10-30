@@ -13,6 +13,3 @@
  *= require_tree .
  *= require_self
  */
-fieldset {
-    padding-bottom: 1em;
-}

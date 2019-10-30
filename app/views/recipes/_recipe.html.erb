@@ -16,14 +16,14 @@
       <div class="content">
         <p>By <%= recipe.user.name %></p>
         <% if recipe.ingredients.all.any? %>
-        <div class="column is-narrow">
-          <strong>Ingredients:</strong>
-          <% recipe.ingredients.each do |ingredient| %>
-            <div class="column is-narrow">
-              <%= ingredient.as_string %>
-            </div>
-          <% end %>
-        </div>
+          <div class="column is-narrow">
+            <strong>Ingredients:</strong>
+            <% recipe.ingredients.each do |ingredient| %>
+              <div class="column is-narrow">
+                <%= ingredient.as_string %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
         <p><%= recipe.content %></p>
       </div>

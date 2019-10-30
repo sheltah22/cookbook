@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipes.build(recipe_params)
+    @recipe = current_user.recipes.create(recipe_params)
     if @recipe.save(recipe_params)
       flash[:success] = "Recipe saved!"
       redirect_to browse_url
@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :dish_type_id, :content,
-                                   ingredients_attributes: [:id, :amount, :measurement_id, :food_id])
+                                   ingredients_attributes: [:id, :amount, :measurement_id, :food_id, :_destroy])
   end
 
 end
