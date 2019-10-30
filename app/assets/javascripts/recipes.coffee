@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
   $('form').on 'click', '.remove_ingredient', (event) ->
-    $(this).closest('.level-item').prev('input[type=hidden]').val(1)
+    $(this).closest('.level-item').prev('input[type=hidden]').val('1')
     $(this).closest('fieldset').hide()
     event.preventDefault()
 
