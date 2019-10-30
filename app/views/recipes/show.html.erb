@@ -17,10 +17,10 @@
       <% if @recipe.ingredients.all.any? %>
         <div class="column is-narrow">
           <strong>Ingredients:</strong>
-          <% %>@recipe.ingredients.each do |ingredient| %>
-            <div class="column is-narrow">
-              <%= ingredient.as_string %>
-            </div>
+          <% @recipe.ingredients.each do |ingredient| %>
+          <div class="column is-narrow">
+            <%= ingredient.as_string %>
+          </div>
           <% end %>
         </div>
       <% end %>
@@ -34,7 +34,7 @@
         </span>
       </p>
       <p class="card-footer-item">
-        <%= link_to "Edit", edit_recipe_path(recipe) %>
+        <%= link_to "Edit", edit_recipe_path(@recipe) %>
       </p>
     </footer>
   </div>
