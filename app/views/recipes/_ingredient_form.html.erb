@@ -1,0 +1,40 @@
+<fieldset>
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <div class="field">
+          <div class="control">
+            <%= f.number_field :amount, class: "input" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="level-item">
+        <div class="field">
+          <div class="control">
+            <%= f.collection_select :measurement_id, Measurement.all, :id, :name %>
+          </div>
+        </div>
+      </div>
+
+      <div class="level-item">
+        <div class="field">
+          <div class="control">
+            <%= f.collection_select :food_id, Food.all, :id, :name %>
+          </div>
+        </div>
+      </div>
+
+      <%= f.hidden_field :_destroy %>
+      <div class="level-item">
+        <div class="field">
+          <div class="control">
+            <button class="button" type="button">
+              <%= link_to "Remove", '#', class: "remove_ingredient" %>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>

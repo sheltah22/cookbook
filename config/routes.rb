@@ -15,6 +15,5 @@ Rails.application.routes.draw do
 
   get '/add_recipe', to: 'recipes#new'
   post '/add_recipe', to: 'recipes#create'
-  get '/add_ingredient_form', to: 'recipes#add_ingredient_form', as: 'add_ingredient_form'
   resources :recipes
 end
