@@ -1,5 +1,8 @@
 class CookbookController < ApplicationController
   include CookbookHelper
+
+  before_action :logged_in_user, only: :saved_recipes
+
   def home
     @keywords = helpers.random_keywords
     @title = @keywords.join(' ')
@@ -16,5 +19,12 @@ class CookbookController < ApplicationController
   end
 
   def saved_recipes
+  end
+
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in to access this page."
+      redirect_to login_url
+    end
   end
 end

@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :logged_in_user, only: [:new, :create, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @recipe = current_user.recipes.build
@@ -40,4 +42,15 @@ class RecipesController < ApplicationController
                                    ingredients_attributes: [:id, :amount, :measurement_id, :food_id, :_destroy])
   end
 
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in to access this page."
+      redirect_to login_url
+    end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 end
