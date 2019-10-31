@@ -3,6 +3,13 @@ require 'rails_helper'
 
 describe "Cookbook" do
   let(:base_title) { "Cookbook" }
+
+  before(:each) do
+    user = User.create(name: "Test User", email: "user@example.com",
+                       password: "longpassword", password_confirmation: "longpassword")
+    log_in_as(user)
+  end
+
   it "loads root and renders home view with correct title" do
     get root_url
     expect(response).to have_http_status(:ok)
@@ -24,10 +31,10 @@ describe "Cookbook" do
     assert_select "title", "Advanced Search | #{base_title}"
   end
 
-  xit "loads add_recipe and renders view with correct title" do
+  it "loads add_recipe and renders view with correct title" do
     get add_recipe_url
     expect(response).to have_http_status(:ok)
-    expect(response).to render_template(:add_recipe)
+    expect(response).to render_template('recipes/new')
     assert_select "title", "Add Recipe | #{base_title}"
   end
 
