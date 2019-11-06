@@ -8,7 +8,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :dish_type, class: "label" %>
+    <%= f.label :dish_type_id, class: "label" %>
     <div class="control">
       <div class="select">
         <%= f.collection_select :dish_type_id, DishType.all, :id, :name %>

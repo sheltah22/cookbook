@@ -1,9 +1,11 @@
 <li class="ingredient">
   <fieldset>
+    <legend class="hidden">Ingredient:</legend>
     <div class="level">
       <div class="level-left">
         <div class="level-item">
           <div class="field">
+            <%= f.label :amount, class: "label hidden" %>
             <div class="control">
               <%= f.number_field :amount, step: :any, class: "input" %>
             </div>
@@ -12,6 +14,7 @@
 
         <div class="level-item">
           <div class="field">
+            <%= f.label :measurement_id, class: "label hidden" %>
             <div class="control">
               <%= f.collection_select :measurement_id, Measurement.all, :id, :name %>
             </div>
@@ -20,12 +23,12 @@
 
         <div class="level-item">
           <div class="field">
+            <%= f.label :food_id, class: "label hidden" %>
             <div class="control">
               <%= f.collection_select :food_id, Food.all, :id, :name %>
             </div>
           </div>
         </div>
-
 
         <div class="level-item">
           <div class="field">
