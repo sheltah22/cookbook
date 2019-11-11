@@ -50,7 +50,12 @@ class RecipesController < ApplicationController
   end
 
   def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+    @recipe = Recipe.find_by_id(params[:id])
+    if @recipe
+      @user = @recipe.user
+      redirect_to(root_url) unless current_user?(@user)
+    else
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 end
