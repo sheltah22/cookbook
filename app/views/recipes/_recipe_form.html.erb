@@ -16,6 +16,8 @@
     </div>
   </div>
 
+  <label class="label"> Ingredients </label>
+
   <%= f.nested_fields_for :ingredients do |ff| %>
     <%= render 'ingredient_form', f: ff %>
   <% end %>
