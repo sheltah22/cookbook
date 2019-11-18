@@ -18,9 +18,10 @@
             <div class="control">
               <% if object.measurement_id.to_i != 0 %>
                 <%= f.text_field :measurement, class: "input",
-                                               value: Measurement.find(object.measurement_id.to_i).name %>
+                                               value: Measurement.find(object.measurement_id.to_i).name,
+                                               placeholder: "Measurement" %>
               <% else %>
-                <%= f.text_field :measurement, class: "input" %>
+                <%= f.text_field :measurement, class: "input", placeholder: "Measurement" %>
               <% end %>
             </div>
           </div>
@@ -32,9 +33,10 @@
             <div class="control">
               <% if object.food_id.to_i != 0 %>
                 <%= f.text_field :food, class: "input",
-                                        value: Food.find(object.food_id.to_i).name %>
+                                        value: Food.find(object.food_id.to_i).name,
+                                        placeholder: "Food" %>
               <% else %>
-                <%= f.text_field :food, class: "input" %>
+                <%= f.text_field :food, class: "input", placeholder: "Food" %>
               <% end %>
             </div>
           </div>
