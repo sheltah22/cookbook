@@ -18,8 +18,8 @@
 
   <label class="label"> Ingredients </label>
 
-  <%= f.nested_fields_for :ingredients do |ff| %>
-    <%= render 'ingredient_form', f: ff %>
+  <%= f.nested_fields_for :ingredients, @ingredient do |ff| %>
+    <%= render 'ingredient_form', object: ff.object, f: ff %>
   <% end %>
 
 

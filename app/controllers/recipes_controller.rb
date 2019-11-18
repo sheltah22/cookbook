@@ -8,8 +8,9 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipes.create(recipe_params)
-    if @recipe.save(recipe_params)
+    urp = updated_recipe_params
+    @recipe = current_user.recipes.create(urp)
+    if @recipe.save(urp)
       flash[:success] = "Recipe saved!"
       redirect_to browse_url
     else
@@ -23,7 +24,7 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    if @recipe.update(recipe_params)
+    if @recipe.update(updated_recipe_params)
       flash[:success] = "Recipe Updated"
       redirect_to browse_url
     else
@@ -39,7 +40,16 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :dish_type_id, :content,
-                                   ingredients_attributes: [:id, :amount, :measurement_id, :food_id, :_destroy])
+                                   ingredients_attributes: [:id, :amount, :measurement, :food, :_destroy])
+  end
+
+  def updated_recipe_params
+    recipe_params_final = recipe_params
+    recipe_params_final[:ingredients_attributes].values.each do |ingredient|
+      ingredient[:measurement] = Measurement.find_by(name: ingredient[:measurement])
+      ingredient[:food] = Food.find_by(name: ingredient[:food])
+    end
+    return recipe_params_final
   end
 
   def logged_in_user

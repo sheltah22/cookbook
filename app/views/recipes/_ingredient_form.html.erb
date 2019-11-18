@@ -14,18 +14,28 @@
 
         <div class="level-item">
           <div class="field">
-            <%= f.label :measurement_id, class: "label hidden" %>
+            <%= f.label :measurement, class: "label hidden" %>
             <div class="control">
-              <%= f.collection_select :measurement_id, Measurement.all, :id, :name %>
+              <% if object.measurement_id.to_i != 0 %>
+                <%= f.text_field :measurement, class: "input",
+                                               value: Measurement.find(object.measurement_id.to_i).name %>
+              <% else %>
+                <%= f.text_field :measurement, class: "input" %>
+              <% end %>
             </div>
           </div>
         </div>
 
         <div class="level-item">
           <div class="field">
-            <%= f.label :food_id, class: "label hidden" %>
+            <%= f.label :food, class: "label hidden" %>
             <div class="control">
-              <%= f.collection_select :food_id, Food.all, :id, :name %>
+              <% if object.food_id.to_i != 0 %>
+                <%= f.text_field :food, class: "input",
+                                        value: Food.find(object.food_id.to_i).name %>
+              <% else %>
+                <%= f.text_field :food, class: "input" %>
+              <% end %>
             </div>
           </div>
         </div>
