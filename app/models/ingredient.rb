@@ -11,8 +11,11 @@ class Ingredient < ApplicationRecord
       variety = measurement.variety
       food.varieties.all
       unless food.varieties.exists?(variety.id)
-        errors.add(:measurement, "must be appropriate for food, measurement is #{variety.name.downcase}, "\
-                                 "food is measured in #{food.varieties.all.to_a.map { |e| e.name.downcase }}")
+        errors.add(:measurement,
+                   "Measurement must be appropriate for food:"\
+                   "Please change your measurement for #{food.name} from #{measurement.name.pluralize} to one "\
+                   "that measures in terms of "\
+                   "#{food.varieties.all.to_a.map { |e| e.name.downcase }.join(' or ')}")
       end
     end
   end

@@ -10,7 +10,9 @@
       <div class="content">
         <ul>
           <% object.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+            <li>
+              <strong><%= msg.split(":")[0] ++ ":" %></strong> <%= msg.partition(':')[2] %>
+            </li>
           <% end %>
         </ul>
       </div>
