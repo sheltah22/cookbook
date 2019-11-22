@@ -50,8 +50,8 @@ describe "Create Recipe" do
                        user_id: @user.id,
                        dish_type_id: @dish_type.id,
                        ingredients_attributes: { "0": { amount: 1.0,
-                                                        measurement_id: measurement.id,
-                                                        food_id: food.id }},
+                                                        measurement: measurement.name,
+                                                        food: food.name }},
                        content: "Lorem Ipsum" }}
     end.to change(Recipe, :count).by(1)
        .and change(Ingredient, :count).by(1)

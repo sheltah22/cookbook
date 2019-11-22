@@ -45,17 +45,19 @@ class RecipesController < ApplicationController
 
   def updated_recipe_params
     recipe_params_final = recipe_params
-    recipe_params_final[:ingredients_attributes].values.each do |ingredient|
-      new_measurement = Measurement.find_by(name: ingredient[:measurement].downcase)
-      if new_measurement.nil?
-        new_measurement = Measurement.find_by(name: ingredient[:measurement].downcase.singularize)
+    if (recipe_params_final[:ingredients_attributes])
+      recipe_params_final[:ingredients_attributes].values.each do |ingredient|
+        new_measurement = Measurement.find_by(name: ingredient[:measurement].downcase)
+        if new_measurement.nil?
+          new_measurement = Measurement.find_by(name: ingredient[:measurement].downcase.singularize)
+        end
+        new_food = Food.find_by(name: ingredient[:food].downcase)
+        if new_food.nil?
+          new_food = Food.find_by(name: ingredient[:food].downcase.pluralize)
+        end
+        ingredient[:measurement] = new_measurement
+        ingredient[:food] = new_food
       end
-      new_food = Food.find_by(name: ingredient[:food].downcase)
-      if new_food.nil?
-        new_food = Food.find_by(name: ingredient[:food].downcase.pluralize)
-      end
-      ingredient[:measurement] = new_measurement
-      ingredient[:food] = new_food
     end
     return recipe_params_final
   end

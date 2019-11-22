@@ -67,8 +67,8 @@ describe "Edit Recipe" do
                       user_id: @user.id,
                       dish_type_id: @dish_type.id,
                       ingredients_attributes: { "1": { amount: 3.5,
-                                                       measurement_id: @measurement.id,
-                                                       food_id: new_food.id }},
+                                                       measurement: @measurement.name,
+                                                       food: new_food.name }},
                       content: "Lorem Ipsum" }}
     expect(response).to redirect_to(browse_path)
     @recipe.reload
