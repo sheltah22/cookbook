@@ -22,13 +22,11 @@
     <%= render 'ingredient_form', object: ff.object, f: ff %>
   <% end %>
 
-
   <%= f.add_nested_fields_link :ingredients do %>
     <button class="button ingredient_button" type="button">
       Add Ingredient
     </button>
   <% end %>
-
 
   <div class="field">
     <%= f.label :content, class: "label" %>
