@@ -15,9 +15,6 @@ class CookbookController < ApplicationController
     @page = params[:page]
   end
 
-  def advanced_search
-  end
-
   def saved_recipes
     @recipes = current_user.recipes.paginate(page: params[:page], per_page: 10)
     @page = params[:page]
