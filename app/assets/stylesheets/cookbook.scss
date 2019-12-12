@@ -19,7 +19,25 @@ $danger: hsl(7, 100%, 45%);
 }
 
 body {
-    padding-top: 10px;
+    margin: 0em;
+    padding: 0em;
+}
+
+footer {
+    margin: 0em;
+}
+
+section {
+    margin: 0em;
+    padding: 0em;
+}
+
+.container {
+    min-height: 80vh;
+}
+
+.outer {
+    padding-top: 1em;
 }
 
 .card {

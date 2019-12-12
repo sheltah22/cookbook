@@ -18,40 +18,47 @@
   </head>
 
   <body>
-    <div class="section">
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation bar">
-      <div class="navbar-brand">
-        <a class="navbar-item" href=<%= root_path%> style="font-size:x-large; font-weight:bold;">
-          Cookbook
-        </a>
-      </div>
+    <div class="outer">
+      <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation bar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href=<%= root_path%> style="font-size:x-large; font-weight:bold;">
+            Cookbook
+          </a>
+        </div>
 
-      <div id="menu" class="navbar-menu">
-        <div class="navbar-start">
-          <a href=<%= root_path %> class="navbar-item">Home</a>
-          <a href=<%= browse_path %> class="navbar-item">Browse</a>
-          <% if logged_in? %>
-            <a href=<%= add_recipe_path %> class="navbar-item">Add Recipe</a>
-            <a href=<%= saved_recipes_path %> class="navbar-item">Saved Recipes</a>
-          <% end %>
+        <div id="menu" class="navbar-menu">
+          <div class="navbar-start">
+            <a href=<%= root_path %> class="navbar-item">Home</a>
+            <a href=<%= browse_path %> class="navbar-item">Browse</a>
+            <% if logged_in? %>
+              <a href=<%= add_recipe_path %> class="navbar-item">Add Recipe</a>
+              <a href=<%= saved_recipes_path %> class="navbar-item">Saved Recipes</a>
+            <% end %>
+          </div>
+          <div class="navbar-end">
+            <% if logged_in? %>
+              <a href=<%= user_path(current_user) %> class="navbar-item">Profile</a>
+              <a href=<%= logout_path %> class="navbar-item">Log Out</a>
+            <% else %>
+              <a href=<%= login_path %> class="navbar-item">Log In</a>
+              <a href=<%= signup_path %> class="navbar-item">Sign Up</a>
+            <% end %>
+          </div>
         </div>
-        <div class="navbar-end">
-          <% if logged_in? %>
-            <a href=<%= user_path(current_user) %> class="navbar-item">Profile</a>
-            <a href=<%= logout_path %> class="navbar-item">Log Out</a>
-          <% else %>
-            <a href=<%= login_path %> class="navbar-item">Log In</a>
-            <a href=<%= signup_path %> class="navbar-item">Sign Up</a>
-          <% end %>
-        </div>
+      </nav>
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+          <div class="notification is-<%= message_type %>"><%= message %></div>
+        <% end %>
+        <%= yield %>
       </div>
-    </nav>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <div class="notification is-<%= message_type %>"><%= message %></div>
-      <% end %>
-      <%= yield %>
-    </div>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            Implemented by <%= link_to "sheltah22", "https://github.com/sheltah22" %> using Ruby on Rails.
+          </p>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
