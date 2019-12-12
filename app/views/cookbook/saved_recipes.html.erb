@@ -1,6 +1,15 @@
 <% provide(:title, "Saved Recipes") %>
 
 <section class="section">
-  <h1 class="title">Saved Recipes</h1>
-  <p>The logged-in user's saved recipes will show up here.</p>
+  <h1 class="title is-3">Saved Recipes</h1>
+
+  <%= will_paginate @recipes, renderer: BulmaPagination::Rails, class: 'is-centered' %>
+  <section class="section">
+    <div class="column is-full">
+      <ul class="recipes">
+        <%= render @recipes %>
+      </ul>
+    </div>
+  </section>
+  <%= will_paginate @recipes, renderer: BulmaPagination::Rails, class: 'is-centered' %>
 </section>
