@@ -20,6 +20,9 @@ class CookbookController < ApplicationController
     @page = params[:page]
   end
 
+  def search
+  end
+
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in to access this page."

@@ -57,3 +57,17 @@ button.button.ingredient_button {
 .hidden {
     display: none;
 }
+
+div.control.search-bar {
+    width: 90%;
+}
+
+input.input.search {
+    width: 100%;
+}
+
+a.button {
+    background-color: hsl(7, 100%, 45%);
+    color: white;
+    font-weight: bold;
+}
