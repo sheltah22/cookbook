@@ -22,6 +22,10 @@ class Recipe < ApplicationRecord
                     }
                   }
 
+  scope :by_dish_type, -> (dish_type_id) {
+      where(dish_type: dish_type_id) if dish_type_id.present?
+  }
+
   def self.search(query)
     if query.present?
       search_by_title(query)

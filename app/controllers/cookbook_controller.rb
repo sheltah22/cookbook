@@ -25,10 +25,12 @@ class CookbookController < ApplicationController
 
   def search_results
     title = params[:query][:title]
-    if (title.blank?)
+    dish_type = params[:query][:dish_type]
+    if (title.blank? and dish_type.blank?)
       @recipes = Recipe.all.paginate(page: params[:page], per_page: 10)
     else
-      @recipes = Recipe.search(title)
+      @recipes = Recipe.by_dish_type(dish_type)
+                   .search(title)
                    .all
                    .paginate(page: params[:page], per_page: 10)
     end

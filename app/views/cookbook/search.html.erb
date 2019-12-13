@@ -13,5 +13,15 @@
         </a>
       </div>
     </div>
+
+    <div class="field">
+      <%= label(:dish_type, :dish_type, class: "label") %>
+      <div class="control">
+        <div class="select">
+          <%= collection_select(:query, :dish_type, DishType.all, :id, :name, prompt: "Dish type") %>
+        </div>
+      </div>
+    </div>
+
   </form>
 </section>
