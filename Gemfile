@@ -42,6 +42,7 @@ gem 'will_paginate'
 gem 'will_paginate-bulma'
 gem 'faker', '~> 1.7'
 gem 'nested_form_fields'
+gem 'pg_search'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

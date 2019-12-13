@@ -23,6 +23,17 @@ class CookbookController < ApplicationController
   def search
   end
 
+  def search_results
+    title = params[:query][:title]
+    if (title.blank?)
+      @recipes = Recipe.all.paginate(page: params[:page], per_page: 10)
+    else
+      @recipes = Recipe.search(title)
+                   .all
+                   .paginate(page: params[:page], per_page: 10)
+    end
+  end
+
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in to access this page."

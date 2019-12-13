@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/browse', to: 'cookbook#browse'
   get '/saved_recipes', to: 'cookbook#saved_recipes'
   get '/search', to: 'cookbook#search'
+  get '/search_results', to: 'cookbook#search_results'
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
