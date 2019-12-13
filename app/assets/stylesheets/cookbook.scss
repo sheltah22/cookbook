@@ -71,3 +71,8 @@ a.button {
     color: white;
     font-weight: bold;
 }
+
+a.button:hover {
+    background-color: hsl(7, 100%, 37%);
+    color: white;
+}

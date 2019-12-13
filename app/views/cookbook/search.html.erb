@@ -23,5 +23,13 @@
       </div>
     </div>
 
+    <div class="field">
+      <%= label(:ingredient, "What do you need to use up?", class: "label") %>
+      <div class="control">
+        <ul>
+          <%= render('food_filter') %>
+        </ul>
+      </div>
+    </div>
   </form>
 </section>

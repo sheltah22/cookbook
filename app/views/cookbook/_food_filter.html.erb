@@ -1,0 +1,37 @@
+<li class="ingredient">
+  <fieldset>
+    <legend class="hidden">Ingredient:</legend>
+    <div class="level">
+      <div class="level-left">
+
+        <div class="level-item">
+          <div class="field">
+            <%= label :ingredient, :amount, class: "label hidden" %>
+            <div class="control">
+              <%= number_field :ingredient, :amount, placeholder: "1.0", step: :any, class: "input" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="level-item">
+          <div class="field">
+            <%= label :ingredient, :measurement, class: "label hidden" %>
+            <div class="control">
+              <%= text_field :ingredient, :measurement, class: "input", placeholder: "Measurement" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="level-item">
+          <div class="field">
+            <%= label :ingredient, :food, class: "label hidden" %>
+            <div class="control">
+              <%= text_field :ingredient, :food, class: "input", placeholder: "Food" %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </fieldset>
+</li>
