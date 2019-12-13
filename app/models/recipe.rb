@@ -30,6 +30,16 @@ class Recipe < ApplicationRecord
     joins(:ingredients).where(ingredients: {food: food_id}) if food_id.present?
   }
 
+  scope :by_ingredient, -> (measurement_id, food_id) {
+    joins(:ingredients).where(ingredients: { food: food_id,
+                                             measurement: measurement_id
+                                           })
+  }
+
+  scope :by_amount, -> (amount) {
+    joins(:ingredients).where("ingredients.amount >= #{amount}")
+  }
+
   def self.search(query)
     if query.present?
       search_by_title(query)

@@ -25,10 +25,10 @@ describe "Cookbook" do
   end
 
   it "loads advanced_search and renders view with correct title" do
-    get advanced_search_url
+    get search_url
     expect(response).to have_http_status(:ok)
-    expect(response).to render_template(:advanced_search)
-    assert_select "title", "Advanced Search | #{base_title}"
+    expect(response).to render_template(:search)
+    assert_select "title", "Search | #{base_title}"
   end
 
   it "loads add_recipe and renders view with correct title" do
