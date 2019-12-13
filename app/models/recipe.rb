@@ -23,14 +23,18 @@ class Recipe < ApplicationRecord
                   }
 
   scope :by_dish_type, -> (dish_type_id) {
-      where(dish_type: dish_type_id) if dish_type_id.present?
+    where(dish_type: dish_type_id) if dish_type_id.present?
+  }
+
+  scope :by_food, -> (food_id) {
+    joins(:ingredients).where(ingredients: {food: food_id}) if food_id.present?
   }
 
   def self.search(query)
     if query.present?
       search_by_title(query)
     else
-      order(name: :asc)
+      order(title: :asc)
     end
   end
 end

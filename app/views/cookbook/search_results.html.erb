@@ -1,9 +1,9 @@
 <% provide(:title, "Search Results") %>
 
-<section class="section">
+<section class="section>
   <h1 class="title is-3">Search Results</h1>
 
-  <%= if @results %>
+  <% if @recipes %>
 
     <%= will_paginate @recipes, renderer: BulmaPagination::Rails, class: 'is-centered' %>
     <section class="section">

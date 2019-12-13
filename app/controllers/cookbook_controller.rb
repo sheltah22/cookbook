@@ -26,14 +26,22 @@ class CookbookController < ApplicationController
   def search_results
     title = params[:query][:title]
     dish_type = params[:query][:dish_type]
-    if (title.blank? and dish_type.blank?)
-      @recipes = Recipe.all.paginate(page: params[:page], per_page: 10)
+    amount = params[:query][:amount]
+    measurement = params[:query][:measurement]
+    food = Food.where(name: params[:query][:food]).first
+
+    if ([title, dish_type, amount, measurement, food].count{ |q| q.blank? }) == 5
+      @recipes = Recipe
+                   .all
+                   .paginate(page: params[:page], per_page: 10)
     else
       @recipes = Recipe.by_dish_type(dish_type)
                    .search(title)
+                   .by_food(food)
                    .all
                    .paginate(page: params[:page], per_page: 10)
     end
+    @page = params[:page]
   end
 
   def logged_in_user

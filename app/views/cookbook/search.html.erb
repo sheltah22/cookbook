@@ -1,4 +1,4 @@
-<% provide(:title, "Saved Recipes") %>
+<% provide(:title, "Search") %>
 
 <section class="section">
   <h1 class="title is-3">Search</h1>
@@ -8,9 +8,7 @@
         <%= text_field(:query, :title, class: "input search", placeholder: "Find a recipe") %>
       </div>
       <div class="control">
-        <a class="button" type="submit">
-          Search
-        </a>
+        <%= button_tag("Search", type: "submit", class: "button") %>
       </div>
     </div>
 
@@ -23,13 +21,11 @@
       </div>
     </div>
 
-    <div class="field">
-      <%= label(:ingredient, "What do you need to use up?", class: "label") %>
-      <div class="control">
-        <ul>
-          <%= render('food_filter') %>
-        </ul>
-      </div>
+    <%= label(:query, "What do you need to use up?", class: "label") %>
+    <div class="control">
+      <ul>
+        <%= render 'food_filter' %>
+      </ul>
     </div>
   </form>
 </section>
