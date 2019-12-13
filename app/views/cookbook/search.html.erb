@@ -1,0 +1,31 @@
+<% provide(:title, "Search") %>
+
+<section class="section">
+  <h1 class="title is-3">Search</h1>
+  <form action='/search_results'>
+    <div class="field has-addons">
+      <div class="control search-bar">
+        <%= text_field(:query, :title, class: "input search", placeholder: "Find a recipe") %>
+      </div>
+      <div class="control">
+        <%= button_tag("Search", type: "submit", class: "button") %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= label(:dish_type, :dish_type, class: "label") %>
+      <div class="control">
+        <div class="select">
+          <%= collection_select(:query, :dish_type, DishType.all, :id, :name, prompt: "Dish type") %>
+        </div>
+      </div>
+    </div>
+
+    <%= label(:query, "What do you need to use up?", class: "label") %>
+    <div class="control">
+      <ul>
+        <%= render 'food_filter' %>
+      </ul>
+    </div>
+  </form>
+</section>

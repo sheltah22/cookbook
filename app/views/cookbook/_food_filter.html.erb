@@ -1,0 +1,35 @@
+<li class="ingredient">
+  <fieldset>
+    <legend class="hidden">Ingredient:</legend>
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <div class="field">
+            <%= label :query, :amount, class: "label hidden" %>
+            <div class="control">
+              <%= number_field(:query, :amount, placeholder: "1.0", step: :any, class: "input") %>
+            </div>
+          </div>
+        </div>
+
+        <div class="level-item">
+          <div class="field">
+            <%= label :query, :measurement, class: "label hidden" %>
+            <div class="control">
+              <%= text_field(:query, :measurement, class: "input", placeholder: "Measurement") %>
+            </div>
+          </div>
+        </div>
+
+        <div class="level-item">
+          <div class="field">
+            <%= label :query, :food, class: "label hidden" %>
+            <div class="control">
+              <%= text_field(:query, :food, class: "input", placeholder: "Food") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</li>

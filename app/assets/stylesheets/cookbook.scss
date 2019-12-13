@@ -19,7 +19,20 @@ $danger: hsl(7, 100%, 45%);
 }
 
 body {
-    padding-top: 10px;
+    margin: 0em;
+    padding: 0em;
+}
+
+footer {
+    margin: 0em;
+}
+
+.container {
+    min-height: 80vh;
+}
+
+.outer {
+    padding-top: 1em;
 }
 
 .card {
@@ -38,4 +51,23 @@ button.button.ingredient_button {
 
 .hidden {
     display: none;
+}
+
+div.control.search-bar {
+    width: 90%;
+}
+
+input.input.search {
+    width: 100%;
+}
+
+button.button {
+    background-color: hsl(7, 100%, 45%);
+    color: white;
+    font-weight: bold;
+}
+
+button.button:hover {
+    background-color: hsl(7, 100%, 37%);
+    color: white;
 }
